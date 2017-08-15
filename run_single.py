@@ -1,4 +1,5 @@
 import sys
+import os
 import cPickle as pickle
 
 import numpy as np
@@ -7,17 +8,24 @@ import matplotlib.pylab as plt
 from sandpile import ASM
 from plot_avalanches import plot_avalanches
 
-# params
-random_neigbors = False
-random_dropping = True
-show_plots = False
+################################################################################
+#                                Parameters                                    #
+################################################################################
 size = (51, 51)
 total_grains = 500000
 
-# initialize model
+random_neigbors = False
+random_dropping = True
+show_plots = False
+plot_avalanches = False
+
+################################################################################
+#                            Sandpile simulation                               #
+################################################################################
+# 1. initialize model
 asm = ASM(size[0], size[1])
 
-# simulate model and save relevant variables
+# 2. simulate model and save relevant variables
 for grain in range(total_grains):
 
     # drop one grain
@@ -41,7 +49,22 @@ for grain in range(total_grains):
         plt.pause(0.01)
 print '\nFinished :)'
 
-# plot avalanche
-print '\nPlotting avalanche distributions...',
-plot_avalanches(asm)
-plt.show()
+# 3. pickle relevant variables
+# create results directory
+for n_sim in xrange(1, 1000):
+    results_dir = 'results/ASM' + '_' + str(n_sim) + '/'
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+        break
+# pickle variables
+with open(results_dir+'avalanche_times.p', 'wb') as f:
+    pickle.dump(asm.aval_time, f)
+with open(results_dir+'avalanche_sizes.p', 'wb') as f:
+    pickle.dump(asm.aval_size, f)
+
+
+# 4. plot avalanche
+if plot_avalanches:
+    print '\nPlotting avalanche distributions...',
+    plot_avalanches(asm.aval_time, asm.aval_size)
+    plt.show()

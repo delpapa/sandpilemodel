@@ -15,6 +15,7 @@ class ASM(object):
         # stats to save
         self.aval_time = []
         self.aval_size = []
+        self.aval_size_all = []
 
     def add_grain_middle(self):
         self.lattice[self.lattice_middle] += 1
@@ -54,3 +55,4 @@ class ASM(object):
         if avalanche_time > 0:
             self.aval_time.append(avalanche_time)
             self.aval_size.append(np.count_nonzero(avalanche_sites))
+            self.aval_size_all.append(avalanche_sites.sum())
