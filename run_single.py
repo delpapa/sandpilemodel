@@ -12,11 +12,11 @@ from plot_avalanches import plot_avalanches
 #                                Parameters                                    #
 ################################################################################
 size = (51, 51)
-total_grains = 500000
+total_grains = 50000
 
 random_neigbors = False
 random_dropping = True
-show_plots = False
+show_plots = True
 plot_avalanches = False
 
 ################################################################################
@@ -46,7 +46,6 @@ for grain in range(total_grains):
     if show_plots and (grain % 10000) == 0:
         plt.imshow(asm.lattice, interpolation='none')
         plt.draw()
-        plt.pause(0.01)
 print '\nFinished :)'
 
 # 3. pickle relevant variables
@@ -63,7 +62,7 @@ with open(results_dir+'avalanche_sizes.p', 'wb') as f:
     pickle.dump(asm.aval_size, f)
 
 
-# 4. plot avalanche
+# 4. plot avalanches
 if plot_avalanches:
     print '\nPlotting avalanche distributions...',
     plot_avalanches(asm.aval_time, asm.aval_size)
