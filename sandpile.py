@@ -10,9 +10,10 @@ class ASM(object):
         # lattice is created with a border of height 0 to account for the
         # grain falling off
         if random_init:
-            self.lattice = np.random.randint(h, size=(self.x+2, self.y+2))
+            self.lattice = np.random.randint(h, size=(self.x+2, self.y+2),
+                                             dtype='int')
         else:
-            self.lattice = np.zeros((self.x+2, self.y+2))
+            self.lattice = np.zeros((self.x+2, self.y+2), dtype='int')
 
         self.lattice_middle = (self.x/2+1, self.y/2+1)
 

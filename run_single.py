@@ -46,7 +46,7 @@ for grain in range(total_grains):
 
     # show grid figure
     if show_plots and (grain % 100) == 0:
-        plt.imshow(asm.lattice, interpolation='none', cmap='magma')
+        plt.imshow(asm.lattice, interpolation='none', cmap='Blues')
         plt.draw()
         plt.pause(0.01)
 
