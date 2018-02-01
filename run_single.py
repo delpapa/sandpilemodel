@@ -11,21 +11,23 @@ from plot_avalanches import plot_avalanches
 ################################################################################
 #                                Parameters                                    #
 ################################################################################
-size = (51, 51)
+size = (101, 101)
 total_grains = 50000
 
 random_neigbors = False
-random_dropping = True
+random_dropping = False
+
 show_plots = True
 plot_avalanches = False
 
 ################################################################################
 #                            Sandpile simulation                               #
 ################################################################################
-# 1. initialize model
+# 1. initialization
 asm = ASM(size[0], size[1])
+fig = plt.figure(1)
 
-# 2. simulate model and save relevant variables
+# 2. rrun simulation and save relevant variables
 for grain in range(total_grains):
 
     # drop one grain
@@ -43,9 +45,11 @@ for grain in range(total_grains):
 		sys.stdout.flush()
 
     # show grid figure
-    if show_plots and (grain % 10000) == 0:
-        plt.imshow(asm.lattice, interpolation='none')
+    if show_plots and (grain % 100) == 0:
+        plt.imshow(asm.lattice, interpolation='none', cmap='magma')
         plt.draw()
+        plt.pause(0.01)
+
 print '\nFinished :)'
 
 # 3. pickle relevant variables
@@ -66,4 +70,4 @@ with open(results_dir+'avalanche_sizes.p', 'wb') as f:
 if plot_avalanches:
     print '\nPlotting avalanche distributions...',
     plot_avalanches(asm.aval_time, asm.aval_size)
-    plt.show()
+plt.show()

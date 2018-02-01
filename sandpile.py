@@ -2,14 +2,18 @@ import numpy as np
 
 class ASM(object):
 
-    def __init__(self, x, y, h = 4):
+    def __init__(self, x, y, h = 4, random_init = False):
 
         self.x = x
         self.y = y
 
         # lattice is created with a border of height 0 to account for the
         # grain falling off
-        self.lattice = np.random.randint(h, size=(self.x+2, self.y+2))
+        if random_init:
+            self.lattice = np.random.randint(h, size=(self.x+2, self.y+2))
+        else:
+            self.lattice = np.zeros((self.x+2, self.y+2))
+
         self.lattice_middle = (self.x/2+1, self.y/2+1)
 
         # stats to save

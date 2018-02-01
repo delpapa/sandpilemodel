@@ -1,5 +1,5 @@
 # Sand pile model
-A basic python implementation of the Bak–Tang–Wiesenfeld model with avalanche distribution plots, written as a test for my thesis. The power law distributions of avalanche durations and sizes results from the self-organized critical (SOC) behavior.
+A basic python implementation of the [Bak–Tang–Wiesenfeld model](https://en.wikipedia.org/wiki/Abelian_sandpile_model) with avalanche distribution plots, written as a test for my thesis. The power law distributions of avalanche durations and sizes results from the self-organized critical (SOC) behavior.
 
 ## Usage
 
