@@ -7,6 +7,6 @@ To run the model, change the simulation parameters and run `run_single.py`.
 
 The main model methods can be found at `sandpile.py`.
 
-The avalanche plots and power law fits are done with on the [powerlaw](https://pypi.python.org/pypi/powerlaw) package.
+The avalanche plots and power law fits are done using the [powerlaw](https://pypi.python.org/pypi/powerlaw) package.
 
 Still to be properly documented...
