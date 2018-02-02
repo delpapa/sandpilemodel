@@ -6,26 +6,25 @@ import numpy as np
 import matplotlib.pylab as plt
 
 from sandpile import ASM
-from plot_avalanches import plot_avalanches
+from plot_avalanches import plot_avalanches, plot_pile
 
 ################################################################################
 #                                Parameters                                    #
 ################################################################################
-size = (101, 101)
-total_grains = 50000
+size = (101, 101)           # lattice size
+total_grains = 500000       # number of grains to drop
 
-random_neigbors = False
-random_dropping = False
+random_neigbors = False     # if True, grains topple to random neighbors
+random_dropping = False     # drop grains randomly instead of in the middle
 
-show_plots = True
-plot_avalanches = False
+draw_plots = True           # draw plots during the simulation
+avalanches = True           # plot avalanche events distributions
 
 ################################################################################
 #                            Sandpile simulation                               #
 ################################################################################
 # 1. initialization
 asm = ASM(size[0], size[1])
-fig = plt.figure(1)
 
 # 2. rrun simulation and save relevant variables
 for grain in range(total_grains):
@@ -45,12 +44,13 @@ for grain in range(total_grains):
 		sys.stdout.flush()
 
     # show grid figure
-    if show_plots and (grain % 100) == 0:
+    if draw_plots and (grain % 100) == 0:
         plt.imshow(asm.lattice, interpolation='none', cmap='Blues')
         plt.draw()
         plt.pause(0.01)
 
-print '\nFinished :)'
+plot_pile(asm.lattice)
+print '\nDone :)'
 
 # 3. pickle relevant variables
 # create results directory
@@ -65,9 +65,7 @@ with open(results_dir+'avalanche_times.p', 'wb') as f:
 with open(results_dir+'avalanche_sizes.p', 'wb') as f:
     pickle.dump(asm.aval_size, f)
 
-
 # 4. plot avalanches
 if plot_avalanches:
     print '\nPlotting avalanche distributions...',
     plot_avalanches(asm.aval_time, asm.aval_size)
-plt.show()

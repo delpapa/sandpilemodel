@@ -34,7 +34,7 @@ class ASM(object):
 
         # avalanche time and size counters
         avalanche_time = 0
-        avalanche_sites = np.zeros((self.x+2, self.y+2))
+        avalanche_sites = np.zeros((self.x+2, self.y+2), dtype='int')
 
         while self.lattice.max() >= max_height:
 

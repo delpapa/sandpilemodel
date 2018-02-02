@@ -100,6 +100,6 @@ ENV/
 # mypy
 .mypy_cache/
 
-# Ignore saved results #
+# Ignore saved results and plots #
 /results/
-
+/plots/
