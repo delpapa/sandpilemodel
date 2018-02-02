@@ -11,11 +11,13 @@ from plot_avalanches import plot_avalanches, plot_pile
 ################################################################################
 #                                Parameters                                    #
 ################################################################################
-size = (101, 101)           # lattice size
-total_grains = 500000       # number of grains to drop
+size = (51, 51)           # lattice size
+total_grains = 50000        # number of grains to drop
 
-random_neigbors = False     # if True, grains topple to random neighbors
 random_dropping = False     # drop grains randomly instead of in the middle
+random_init = False         # start from a random lattice state
+
+EXP_NAME = 'test'
 
 draw_plots = True           # draw plots during the simulation
 avalanches = True           # plot avalanche events distributions
@@ -24,7 +26,7 @@ avalanches = True           # plot avalanche events distributions
 #                            Sandpile simulation                               #
 ################################################################################
 # 1. initialization
-asm = ASM(size[0], size[1])
+asm = ASM(size[0], size[1], random_init=random_init)
 
 # 2. rrun simulation and save relevant variables
 for grain in range(total_grains):
@@ -55,7 +57,7 @@ print '\nDone :)'
 # 3. pickle relevant variables
 # create results directory
 for n_sim in xrange(1, 1000):
-    results_dir = 'results/ASM' + '_' + str(n_sim) + '/'
+    results_dir = 'results/' + EXP_NAME + '/_' + str(n_sim) + '/'
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
         break
