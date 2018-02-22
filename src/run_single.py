@@ -11,8 +11,8 @@ from plot_avalanches import plot_avalanches, plot_pile
 ################################################################################
 #                                Parameters                                    #
 ################################################################################
-SIZE = (51, 51)             # lattice size
-TOTAL_GRAINS = 20000        # number of grains to drop
+SIZE = (101, 101)             # lattice size
+TOTAL_GRAINS = 100000        # number of grains to drop
 
 RANDOM_DROPPING = False     # drop grains randomly instead of in the middle
 RANDOM_INIT = False         # start from a random lattice state
