@@ -11,28 +11,28 @@ from plot_avalanches import plot_avalanches, plot_pile
 ################################################################################
 #                                Parameters                                    #
 ################################################################################
-size = (51, 51)           # lattice size
-total_grains = 10000        # number of grains to drop
+SIZE = (51, 51)             # lattice size
+TOTAL_GRAINS = 20000        # number of grains to drop
 
-random_dropping = False     # drop grains randomly instead of in the middle
-random_init = False         # start from a random lattice state
+RANDOM_DROPPING = False     # drop grains randomly instead of in the middle
+RANDOM_INIT = False         # start from a random lattice state
 
 EXP_NAME = 'test'
 
-draw_plots = True           # draw plots during the simulation
-avalanches = True           # plot avalanche events distributions
+DRAW_PLOTS = True           # draw plots during the simulation
+PLOT_AVALANCHES = True      # plot avalanche events distributions
 
 ################################################################################
 #                            Sandpile simulation                               #
 ################################################################################
 # 1. initialization
-asm = ASM(size[0], size[1], random_init=random_init)
+asm = ASM(SIZE[0], SIZE[1], random_init=RANDOM_INIT)
 
 # 2. rrun simulation and save relevant variables
-for grain in range(total_grains):
+for grain in range(TOTAL_GRAINS):
 
     # drop one grain
-    if not random_dropping:
+    if not RANDOM_DROPPING:
         asm.add_grain_middle()
     else:
         asm.add_grain_random()
@@ -41,12 +41,13 @@ for grain in range(total_grains):
     asm.topple()
 
     # print the completed percent
-    # if grain%((total_grains-1)//100) == 0 or grain == total_grains-1:
-	# 	sys.stdout.write('\rSimulation: %3d%%'%((int)(grain/(total_grains-1.)*100)))
-    #     sys.stdout.flush()
+    if grain%((TOTAL_GRAINS-1)//100) == 0 or grain == TOTAL_GRAINS-1:
+        sys.stdout.write('\rSimulation: %3d%%'\
+                         %((int)(grain/(TOTAL_GRAINS-1.)*100)))
+        sys.stdout.flush()
 
     # show grid figure
-    if draw_plots and (grain % 100) == 0:
+    if DRAW_PLOTS and (grain % 100) == 0:
         plt.imshow(asm.lattice, interpolation='none', cmap='magma')
         plt.draw()
         plt.pause(0.01)
@@ -68,6 +69,6 @@ with open(results_dir+'avalanche_sizes.p', 'wb') as f:
     pickle.dump(asm.aval_size, f)
 
 # 4. plot avalanches
-if plot_avalanches:
+if PLOT_AVALANCHES:
     print('\nPlotting avalanche distributions...'),
     plot_avalanches(asm.aval_time, asm.aval_size)
