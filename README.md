@@ -20,4 +20,6 @@ A single simulation of the classic sandpile model on a lattice of size (100, 100
 
 The lattice also looks reasonably pretty, even for such small parameters.
 
-![lattice](img/sandpile.png)
+<p align="center">
+<img src="img/sandpile.png">
+</p>
