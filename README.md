@@ -19,13 +19,13 @@ A single simulation of the classic sandpile model on a lattice of size (100, 100
 
 <div class="image123">
     <div class="imageContainer">
-        <img src="img/avalanche_duration.pdf" height="200" width="200" />
+        <img src="img/avalanche_duration.png" height="200" width="200" />
     </div>
     <div class="imageContainer">
-        <img class="img/avalanche_size.pdf" height="200" width="200" />
+        <img class="img/avalanche_size.png" height="200" width="200" />
     </div>
     <div class="imageContainer">    
-        <img src="img/avalanche_scaling.pdf" height="200" width="200"/>
+        <img src="img/avalanche_scaling.png" height="200" width="200"/>
     </div>
 </div>
 
