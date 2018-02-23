@@ -11,7 +11,7 @@ Plot parameters can be modified in the `src/plot_avalanches.py` script as necess
 
 To save simulation time, the avalanche durations and sizes are stored in a folder `results` after each simulation is complete (so you can run only the plot script independently).
 
-The avalanche plots and power-law fits are done using the [powerlaw](https://pypi.python.org/pypi/powerlaw) package.
+The avalanche plots and power-law fits require the [powerlaw](https://pypi.python.org/pypi/powerlaw) package.
 
 ### Example
 
