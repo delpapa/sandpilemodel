@@ -18,13 +18,13 @@ The avalanche plots and power-law fits are done using the [powerlaw](https://pyp
 A single simulation of the classic sandpile model on a lattice of size (100, 100) and 100000 grains of sand yields the following avalanche distributions:
 
 <div class="image123">
-    <div class="imageContainer">
+    <div>
         <img src="img/avalanche_duration.png" height="200" width="200" />
     </div>
-    <div class="imageContainer">
+    <div>
         <img class="middle-img" src="img/avalanche_size.png"/ height="200" width="200" />
     </div>
-    <div class="imageContainer">    
+    <div>    
         <img src="img/avalanche_scaling.png"/ height="200" width="200"/>
     </div>
 </div>
