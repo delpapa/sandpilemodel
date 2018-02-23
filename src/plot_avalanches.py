@@ -91,10 +91,10 @@ def plot_pile(lattice):
 
 if __name__ == "__main__":
 
-    EXP_NAME='test'
+    EXP_NAME='test/ASM_1'
 
     for n_sim in range(1, 1000):
-        results_dir = '../results/'+EXP_NAME+'/ASM' + '_' + str(n_sim) + '/'
+        results_dir = '../results/'+EXP_NAME+'/'
         if os.path.exists(results_dir):
             break
 

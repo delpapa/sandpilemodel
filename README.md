@@ -9,7 +9,7 @@ The main model methods can be found at `src/sandpile.py`.
 
 Plot parameters can be modified in the `src/plot_avalanches.py` script as necessary.
 
-To save simulation time, the avalanche durations and sizes are stored in the folder `results`.
+To save simulation time, the avalanche durations and sizes are stored in a folder `results` after each simulation is complete (so you can run only the plot script independently).
 
 The avalanche plots and power-law fits are done using the [powerlaw](https://pypi.python.org/pypi/powerlaw) package.
 
@@ -17,6 +17,17 @@ The avalanche plots and power-law fits are done using the [powerlaw](https://pyp
 
 A single simulation of the classic sandpile model on a lattice of size (100, 100) and 100000 grains of sand yields the following avalanche distributions:
 
+<div class="image123">
+    <div class="imageContainer">
+        <img src="img/avalanche_duration.pdf" height="200" width="200" />
+    </div>
+    <div class="imageContainer">
+        <img class="img/avalanche_size.pdf" height="200" width="200" />
+    </div>
+    <div class="imageContainer">    
+        <img src="img/avalanche_scaling.pdf" height="200" width="200"/>
+    </div>
+</div>
 
 The lattice also looks reasonably pretty, even for such small parameters.
 
